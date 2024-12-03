@@ -13,6 +13,6 @@ jobs:
         run : |
           echo "Hello World!"
       - name: Print Date
-        run: date
+        run: echo | date
       - name: Directory content
-        run: ls
+        run: echo | ls
