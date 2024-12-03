@@ -23,6 +23,8 @@ jobs:
         run: npm run eslint
       - name: Build
         run: npm run build
+      - name: Test
+        run: npm run test
       - name: E2E Test
         run: |
           npx playwright install --with-deps
@@ -34,4 +36,4 @@ jobs:
           path: playwright-report/
           retention-days: 30
       - name: Trigger deployment
-        run: curl https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_KEY }}?key=${{ secrets.RENDER_SERVICE_KEY }}
+        run: curl ${{ secrets.RENDER_DEPLOY_URL }}
