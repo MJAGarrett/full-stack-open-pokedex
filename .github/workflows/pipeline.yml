@@ -1,0 +1,23 @@
+name: Deployment Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  # Using an ubuntu-20.04 virtual environment. Use what you will have in production.
+  simple_deployment_pipeline:
+    runs-on: ubuntu-20.04
+    steps:
+      # It uses public actions (like functions) to checkout the code and prepare a node environment
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4 
+        with: 
+          node-version: '20'
+      - name: Install Dependencies
+        run: npm install
+      # Environment now setup, we can run tests, linting, etc.
+      - name: Check Style
+        run: npm run eslint
+      
