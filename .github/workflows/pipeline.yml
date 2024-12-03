@@ -20,4 +20,7 @@ jobs:
       # Environment now setup, we can run tests, linting, etc.
       - name: Check Style
         run: npm run eslint
-      
+      - name: Build
+        run: npm run build
+      - name: Test
+        run: npm run test
