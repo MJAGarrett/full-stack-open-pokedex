@@ -18,6 +18,9 @@ app.get('/check', (req, res) => {
   res.send('the deployment succeeded!')
 })
 
+// Added solely to enable a pull-request
+// Added to check that deployments ARE NOT run during pull-request actions.
+
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`server started on port ${PORT}`)
