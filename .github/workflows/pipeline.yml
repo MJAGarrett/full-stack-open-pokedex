@@ -45,7 +45,10 @@ jobs:
   Tag_Release:
     runs-on: ubuntu-20.04
     needs: [simple_deployment_pipeline]
+    permissions:
+      contents: write
     steps:
+      - uses: actions/checkout@v4 
       - name: Bump version and push tag
         if: ${{ github.event_name == 'push' }}
         uses: anothrNick/github-tag-action@1.71.0
