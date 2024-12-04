@@ -38,6 +38,9 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.71.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Trigger deployment
-        if: ${{ github.event_name == 'push' }}
         run: curl ${{ secrets.RENDER_DEPLOY_URL }}
